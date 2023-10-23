@@ -30,7 +30,7 @@ public class TodosTest {
     }
 
     @Test
-    public void shouldFindMatchesMeeting() {
+    public void shouldFindMatchesMeetingTopic() {
         Meeting meeting = new Meeting(
                 406,
                 "Тестировка",
@@ -39,6 +39,19 @@ public class TodosTest {
         );
         boolean expected = true;
         boolean actual = meeting.matches("Тестировка");
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldFindMatchesMeetingProject() {
+        Meeting meeting = new Meeting(
+                406,
+                "Тестировка",
+                "Нетология",
+                "В четверг после дождя"
+        );
+        boolean expected = true;
+        boolean actual = meeting.matches("Нетология");
         Assertions.assertEquals(expected, actual);
     }
 
