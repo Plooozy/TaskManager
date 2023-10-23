@@ -4,22 +4,22 @@ public class Todos {
 
     /**
      * Вспомогательный метод для имитации добавления элемента в массив
+     *
      * @param current Массив, в который мы хотим добавить элемент
-     * @param task Элемент, который мы хотим добавить
+     * @param task    Элемент, который мы хотим добавить
      * @return Возвращает новый массив, который выглядит как тот, что мы передали,
      * но с добавлением нового элемента в конец
      */
     private Task[] addToArray(Task[] current, Task task) {
         Task[] tmp = new Task[current.length + 1];
-        for (int i = 0; i < current.length; i++) {
-            tmp[i] = current[i];
-        }
+        System.arraycopy(current, 0, tmp, 0, current.length);
         tmp[tmp.length - 1] = task;
         return tmp;
     }
 
     /**
      * Метод добавления задачи в список дел
+     *
      * @param task Добавляемая задача
      */
     public void add(Task task) { // <- вот здесь в параметре может лежать объект и вида SimpleTask, и вида Epic, и вида Meeting
@@ -32,6 +32,7 @@ public class Todos {
 
     /**
      * Метод поиска задач, которые подходят под поисковый запрос
+     *
      * @param query Поисковый запрос
      * @return Массив из подошедших задач
      */
